@@ -13,6 +13,20 @@ namespace DemoQASpecFlowProject.Drivers
 {
     public class DriverExtensions
     {
+        public string EnCodePassword(string Password)
+        {
+            string encodedString = Convert.ToBase64String(Encoding.UTF8.GetBytes(Password));
+            return encodedString;
+        }
+        public string DecodePassword(string encodedPassword)
+        {
+            var utf8Decoder = new UTF8Encoding().GetDecoder();
+            byte[] enCodedBytes = Convert.FromBase64String(encodedPassword);
+            int charCount = utf8Decoder.GetCharCount(enCodedBytes,0,enCodedBytes.Length);
+            char[] decoded_char = new char[charCount];
+            utf8Decoder.GetChars(enCodedBytes,0, enCodedBytes.Length, decoded_char, 0);
+            return new(decoded_char);
+        }
         public void ExplicitWait(IWebDriver driver, By locator,TimeSpan timeSpan)
         {
             WebDriverWait wait = new WebDriverWait(driver, timeSpan);

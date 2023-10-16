@@ -42,6 +42,7 @@ namespace DemoQASpecFlowProject.StepDefinitions
         public void GivenINavigateToTheDemoQASiteWidgetsPage()
         {
             _homePage.ClickWidgetLink(driver);
+            
         }
         [When(@"I click the AutoComplete button")]
         public void WhenIClickTheAutoCompleteButton()
@@ -53,6 +54,12 @@ namespace DemoQASpecFlowProject.StepDefinitions
         public void ThenValidateTheAutocompleteFunctionality()
         {
             _autoCompletePage.ValidateAutoCompleteOption(driver);
+        }
+
+        [Given(@"Validate Password Encryption")]
+        public void GivenValidatePasswordEncryption()
+        {
+            
         }
 
 

@@ -8,5 +8,9 @@
     When I click the AutoComplete button
     Then Validate the autocomplete functionality
 
+     Scenario: Validate the PasswordEncryption
+    Given Validate Password Encryption
+
+
 
     

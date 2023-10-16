@@ -2,6 +2,7 @@
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -57,6 +58,9 @@ namespace DemoQASpecFlowProject.Pages
 
         public void ClickWidgetLink(IWebDriver driver)
         {
+          
+
+            string op = _driverExtensions.DecodePassword(ConfigurationManager.AppSettings["Password"]);
             _driverExtensions.ExplicitWait(driver, WidgetLink, TimeSpan.FromMilliseconds(3000));
             _driverExtensions.ClickElement(driver, WidgetLink);
 

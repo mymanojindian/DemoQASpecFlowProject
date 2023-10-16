@@ -43,6 +43,14 @@ namespace DemoQASpecFlowProject.Pages.WidgetsPage
             _driverExtensions.ExplicitWait(driver, FirstSuggetions, TimeSpan.FromSeconds(5));
             _driverExtensions.ClickElement(driver, FirstSuggetions);
         }
+
+
+        public void ValidatePasswordEncryption()
+        {
+           string input = _driverExtensions.EnCodePassword("Test");
+           string output = _driverExtensions.DecodePassword(input);
+
+        }
         #endregion
 
     }
