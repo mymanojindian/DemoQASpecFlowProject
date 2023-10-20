@@ -15,12 +15,13 @@ namespace DemoQASpecFlowProject.StepDefinitions
     public sealed class AutomationOfBookStore
     {
 
-        private IWebDriver driver;
+        private IWebDriver? driver;
         private readonly ScenarioContext _scenarioContext;
         private readonly HomePage _homePage;
         private readonly BookStorePage _bookStorePage;
 
-        public AutomationOfBookStore(ScenarioContext scenarioContext,HomePage homePage,BookStorePage bookStorePage)
+        public AutomationOfBookStore(ScenarioContext scenarioContext,HomePage homePage,
+            BookStorePage bookStorePage)
         {
             _scenarioContext = scenarioContext;
             _homePage = homePage;
@@ -32,26 +33,29 @@ namespace DemoQASpecFlowProject.StepDefinitions
         public void GivenBookStoreIOpenAWebBrowserAndLaunchDemoQASite()
         {
             driver = _scenarioContext.Get<SeleniumDriver>("SeleniumDriver").Setup();
-            string url = ConfigurationManager.AppSettings["ApplicationURL"];
+            string? url = ConfigurationManager.AppSettings["ApplicationURL"];
             driver.Navigate().GoToUrl(url);
         }
 
         [Given(@"I navigate to the demo QA site Book store  Page")]
         public void GivenINavigateToTheDemoQASiteBookStorePage()
         {
-            _homePage.ClickBookStoreApplicationLink(driver);
+            if (driver != null)
+                _homePage.ClickBookStoreApplicationLink(driver);
 
         }
 
         [When(@"I register for new user")]
         public void WhenIRegisterForNewUser()
         {
-            _bookStorePage.RegisterForNewUser(driver);
+            if (driver != null)
+                _bookStorePage.RegisterForNewUser(driver);
         }
 
         [When(@"I navigate to Login page")]
         public void WhenINavigateToLoginPage()
         {
+            //yet to implement
         }
 
         [Then(@"Validate user should be able to login successfully")]

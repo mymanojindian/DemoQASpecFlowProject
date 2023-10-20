@@ -15,11 +15,11 @@ namespace DemoQASpecFlowProject.StepDefinitions
     public sealed class AutomationOfWidgetsStepDefinitions
     {
 
-        private IWebDriver driver;
+        private IWebDriver? driver;
         private readonly ScenarioContext _scenarioContext;
         private readonly HomePage _homePage;
         private readonly AutoCompletePage _autoCompletePage;
-        private TextBoxData textBoxData;
+        
         public AutomationOfWidgetsStepDefinitions(ScenarioContext scenarioContext,HomePage homePage
             ,AutoCompletePage autoCompletePage)
             
@@ -33,7 +33,7 @@ namespace DemoQASpecFlowProject.StepDefinitions
         public void GivenWidgetsIOpenAWebBrowserAndLaunchDemoQASite()
         {
             driver = _scenarioContext.Get<SeleniumDriver>("SeleniumDriver").Setup();
-            string url = ConfigurationManager.AppSettings["ApplicationURL"];
+            string? url = ConfigurationManager.AppSettings["ApplicationURL"];
             driver.Navigate().GoToUrl(url);
         }
 
@@ -41,19 +41,22 @@ namespace DemoQASpecFlowProject.StepDefinitions
         [Given(@"I navigate to the demo QA site Widgets Page")]
         public void GivenINavigateToTheDemoQASiteWidgetsPage()
         {
-            _homePage.ClickWidgetLink(driver);
+            if (driver != null)
+                _homePage.ClickWidgetLink(driver);
             
         }
         [When(@"I click the AutoComplete button")]
         public void WhenIClickTheAutoCompleteButton()
         {
-            _autoCompletePage.ClickAutoCompleteButton(driver);
+            if (driver != null)
+                _autoCompletePage.ClickAutoCompleteButton(driver);
         }
 
         [Then(@"Validate the autocomplete functionality")]
         public void ThenValidateTheAutocompleteFunctionality()
         {
-            _autoCompletePage.ValidateAutoCompleteOption(driver);
+            if (driver != null)
+                _autoCompletePage.ValidateAutoCompleteOption(driver);
         }
 
         [Given(@"Validate Password Encryption")]

@@ -60,7 +60,7 @@ namespace DemoQASpecFlowProject.Pages
         {
           
 
-            string op = _driverExtensions.DecodePassword(ConfigurationManager.AppSettings["Password"]);
+           // string? op = _driverExtensions.DecodePassword(ConfigurationManager.AppSettings["Password"]);
             _driverExtensions.ExplicitWait(driver, WidgetLink, TimeSpan.FromMilliseconds(3000));
             _driverExtensions.ClickElement(driver, WidgetLink);
 

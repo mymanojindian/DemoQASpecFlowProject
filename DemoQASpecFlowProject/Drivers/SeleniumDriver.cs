@@ -25,7 +25,7 @@ namespace DemoQASpecFlowProject.Drivers
         public IWebDriver Setup()
         {
 
-            string browser = ConfigurationManager.AppSettings["Browser"];
+            string? browser = ConfigurationManager.AppSettings["Browser"];
             switch (browser)
             {
              case "Chrome":
@@ -54,10 +54,5 @@ namespace DemoQASpecFlowProject.Drivers
         
         return driver;
         }
-
-
-
-
-
     }
 }

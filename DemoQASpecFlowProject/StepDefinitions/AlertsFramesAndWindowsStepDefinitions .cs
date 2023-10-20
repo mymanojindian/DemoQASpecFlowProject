@@ -27,6 +27,7 @@ namespace DemoQASpecFlowProject.StepDefinitions
             _homePage = homePage;
             _browserWindowsPage = browserWindowsPage;
             _alertsPage = alertsPage;
+            
           
         }
         [Given(@"Windows : I open a web browser and Launch Demo QA Site")]
@@ -34,7 +35,7 @@ namespace DemoQASpecFlowProject.StepDefinitions
         {
 
             driver = _scenarioContext.Get<SeleniumDriver>("SeleniumDriver").Setup();
-            string url = ConfigurationManager.AppSettings["ApplicationURL"];
+            string? url = ConfigurationManager.AppSettings["ApplicationURL"];
             driver.Navigate().GoToUrl(url);
         }
 
@@ -43,7 +44,7 @@ namespace DemoQASpecFlowProject.StepDefinitions
         [Given(@"I navigate to the demo QA site FramesWindowAlert Page")]
         public void GivenINavigateToTheDemoQASiteFramesWindowAlertPage()
         {
-            _homePage.ClickAlertFramesAndWindowsLink(driver);
+                _homePage.ClickAlertFramesAndWindowsLink(driver);
         }
 
         [When(@"I navigate to browser windows page")]
@@ -55,34 +56,37 @@ namespace DemoQASpecFlowProject.StepDefinitions
         [When(@"Select new Window")]
         public void WhenSelectNewWindow()
         {
-            _browserWindowsPage.ClickBrowserWindowsButton(driver);
-            _browserWindowsPage.ClickMessageWindowsButton(driver);
+            
+            
+                _browserWindowsPage.ClickBrowserWindowsButton(driver);
+                _browserWindowsPage.ClickMessageWindowsButton(driver);
+            
         
         }
 
         [Then(@"Validate user is able to handle Multiple window")]
         public void ThenValidateUserIsAbleToHandleMultipleWindow()
         {
-            Assert.AreEqual(true, _browserWindowsPage.HandleMultipleWindows(driver));
+                Assert.AreEqual(true, _browserWindowsPage.HandleMultipleWindows(driver));
 
         }
 
         [When(@"I navigate to Alerts page")]
         public void WhenINavigateToAlertsPage()
         {
-            _alertsPage.ClickAlertsLinkButton(driver);
+                _alertsPage.ClickAlertsLinkButton(driver);
         }
 
         [When(@"Select new Alerts")]
         public void WhenSelectNewAlerts()
         {
-            _alertsPage.ClickPromtButton(driver);
+                _alertsPage.ClickPromtButton(driver);
         }
 
         [Then(@"Validate user is able to handle Alerts")]
         public void ThenValidateUserIsAbleToHandleAlerts()
         {
-            _alertsPage.ValidateAlertPrompt(driver);
+                _alertsPage.ValidateAlertPrompt(driver);
         }
 
     }

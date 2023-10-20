@@ -12,7 +12,7 @@ namespace DemoQASpecFlowProject.Pages.AlertFramesANdWindowPage
     {
 
         private DriverExtensions _driverExtensions;
-        string currentWindow;
+        string? currentWindow;
         By BrowserWindowsLink = By.XPath("//span[contains(text(),'Browser Windows')]"); 
         By MessageWindowLink = By.Id("messageWindowButton");
         By MessageBody = By.XPath("//body");
@@ -38,7 +38,7 @@ namespace DemoQASpecFlowProject.Pages.AlertFramesANdWindowPage
                 if(win!=currentWindow)
                 {
                     string output = _driverExtensions.GetText(driver, MessageBody);
-                    if (output.Contains("Knowledge increases by sharing but not by saving. Please share this website with your friends and in your organization.")) ;
+                    if (output.Contains("Knowledge increases by sharing but not by saving. Please share this website with your friends and in your organization.")) 
                     return true;
                 }
             }

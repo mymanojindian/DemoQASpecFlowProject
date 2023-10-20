@@ -41,11 +41,16 @@ namespace DemoQASpecFlowProject.Pages.ElementsPage
 
         public void UpdateAllTextBoxes(IWebDriver driver,TextBoxData textBoxData)
         {
-            _driverExtensions.SendKeys(driver, FullNameTextBox, textBoxData.FullName);
-            _driverExtensions.SendKeys(driver, UserEmailTextBox, textBoxData.Email);
+            if (textBoxData.FullName != null)
+                _driverExtensions.SendKeys(driver, FullNameTextBox, textBoxData.FullName);
+            if(textBoxData.Email!= null)
+                _driverExtensions.SendKeys(driver, UserEmailTextBox, textBoxData.Email);
+            if(textBoxData.CurrentAddress!=null)    
             _driverExtensions.SendKeys(driver, CurrentAddressTextBox, textBoxData.CurrentAddress);
+            if(textBoxData.PermanentAddress!=null)    
             _driverExtensions.SendKeys(driver, PermanentAddressTextBox, textBoxData.PermanentAddress);
-            _driverExtensions.ScrollDownwards(driver);
+                _driverExtensions.ScrollDownwards(driver);
+            
         }
 
         public void ClickSubmitButton(IWebDriver driver) => _driverExtensions.ClickElement(driver,SubmitButton);

@@ -21,8 +21,8 @@ namespace DemoQASpecFlowProject.Pages.BookStorePage
         By RegisterButton = By.Id("register"); 
         By BackToLogin = By.Id("gotologin");
         By RobotRadioButton = By.XPath("//span[@class='recaptcha-checkbox goog-inline-block recaptcha-checkbox-unchecked rc-anchor-checkbox']");
-        string userName;
-        string password;
+        string? userName;
+        string? password;
         #region Constructors 
         public BookStorePage(DriverExtensions driverExtensions)
         {
@@ -41,9 +41,9 @@ namespace DemoQASpecFlowProject.Pages.BookStorePage
             _driverExtensions.SendKeys(driver, UserName, userName);
             _driverExtensions.SendKeys(driver, Password, password);
             _driverExtensions.ScrollDownwards(driver);
-            _driverExtensions.ExplicitWait(driver, RobotRadioButton, TimeSpan.FromMilliseconds(3000));
-            _driverExtensions.ClickElement(driver, RobotRadioButton);
-            _driverExtensions.ClickElement(driver, RegisterButton);
+            //_driverExtensions.ExplicitWait(driver, RobotRadioButton, TimeSpan.FromMilliseconds(3000));
+            //_driverExtensions.ClickElement(driver, RobotRadioButton);
+            //_driverExtensions.ClickElement(driver, RegisterButton);
 
 
         }
