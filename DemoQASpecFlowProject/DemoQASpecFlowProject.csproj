@@ -36,10 +36,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Support\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Update="Features\AutomationOfBookStoreApplication.feature.cs">
       <DependentUpon>AutomationOfBookStoreApplication.feature</DependentUpon>
     </Compile>
