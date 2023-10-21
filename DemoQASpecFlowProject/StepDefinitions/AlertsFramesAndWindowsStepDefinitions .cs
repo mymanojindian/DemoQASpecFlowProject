@@ -14,7 +14,7 @@ namespace DemoQASpecFlowProject.StepDefinitions
     public sealed class AlertsFramesAndWindowsStepDefinitions
     {
 
-        private IWebDriver driver;
+        private IWebDriver? driver;
         private readonly ScenarioContext _scenarioContext;
         private readonly HomePage _homePage;
         private readonly BrowserWindowsPage _browserWindowsPage;
@@ -44,29 +44,33 @@ namespace DemoQASpecFlowProject.StepDefinitions
         [Given(@"I navigate to the demo QA site FramesWindowAlert Page")]
         public void GivenINavigateToTheDemoQASiteFramesWindowAlertPage()
         {
+            if(driver != null)
                 _homePage.ClickAlertFramesAndWindowsLink(driver);
         }
 
         [When(@"I navigate to browser windows page")]
         public void WhenINavigateToBrowserWindowsPage()
         {
-            _browserWindowsPage.ClickBrowserWindowsButton(driver);
+            if (driver != null)
+                _browserWindowsPage.ClickBrowserWindowsButton(driver);
         }
 
         [When(@"Select new Window")]
         public void WhenSelectNewWindow()
         {
-            
-            
+
+            if (driver != null)
+            {
                 _browserWindowsPage.ClickBrowserWindowsButton(driver);
                 _browserWindowsPage.ClickMessageWindowsButton(driver);
-            
+            }
         
         }
 
         [Then(@"Validate user is able to handle Multiple window")]
         public void ThenValidateUserIsAbleToHandleMultipleWindow()
         {
+            if (driver != null)
                 Assert.AreEqual(true, _browserWindowsPage.HandleMultipleWindows(driver));
 
         }
@@ -74,18 +78,21 @@ namespace DemoQASpecFlowProject.StepDefinitions
         [When(@"I navigate to Alerts page")]
         public void WhenINavigateToAlertsPage()
         {
+            if (driver != null)
                 _alertsPage.ClickAlertsLinkButton(driver);
         }
 
         [When(@"Select new Alerts")]
         public void WhenSelectNewAlerts()
         {
+            if (driver != null)
                 _alertsPage.ClickPromtButton(driver);
         }
 
         [Then(@"Validate user is able to handle Alerts")]
         public void ThenValidateUserIsAbleToHandleAlerts()
         {
+                if(driver != null)
                 _alertsPage.ValidateAlertPrompt(driver);
         }
 

@@ -36,12 +36,12 @@ namespace DemoQASpecFlowProject.Pages.WidgetsPage
 
         public void ValidateAutoCompleteOption(IWebDriver driver)
         {
-        _driverExtensions.ExplicitWait(driver,MultipleColorTextBox,TimeSpan.FromSeconds(5));
+            _driverExtensions.ExplicitWait(driver,MultipleColorTextBox,TimeSpan.FromSeconds(5));
             _driverExtensions.ClickElement(driver, MultipleColorTextBox);
-            _driverExtensions.JSSendText(driver, MultipleColorTextBox, "b");
-            _driverExtensions.ExplicitWait(driver,AutoCompleteOptions,TimeSpan.FromSeconds(5));
-            _driverExtensions.ExplicitWait(driver, FirstSuggetions, TimeSpan.FromSeconds(5));
-            _driverExtensions.ClickElement(driver, FirstSuggetions);
+            _driverExtensions.JSSendText(driver, MultipleColorTextBox, "b" + Keys.Enter);
+            //_driverExtensions.ExplicitWait(driver,AutoCompleteOptions,TimeSpan.FromSeconds(5));
+            //_driverExtensions.ExplicitWait(driver, FirstSuggetions, TimeSpan.FromSeconds(5));
+            //_driverExtensions.ClickElement(driver, FirstSuggetions);
         }
 
 

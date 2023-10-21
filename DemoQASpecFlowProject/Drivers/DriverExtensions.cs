@@ -52,7 +52,11 @@ namespace DemoQASpecFlowProject.Drivers
             alert.SendKeys(message);
             alert.Accept();
         }
-
+        public void AcceptAlerts(IWebDriver driver)
+        {
+            IAlert alert = driver.SwitchTo().Alert();
+            alert.Accept();
+        }
 
 
         public void ScrollDownwards(IWebDriver driver)

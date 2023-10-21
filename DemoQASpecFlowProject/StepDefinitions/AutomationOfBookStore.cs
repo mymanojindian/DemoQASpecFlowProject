@@ -15,7 +15,7 @@ namespace DemoQASpecFlowProject.StepDefinitions
     public sealed class AutomationOfBookStore
     {
 
-        private IWebDriver? driver;
+        private IWebDriver driver;
         private readonly ScenarioContext _scenarioContext;
         private readonly HomePage _homePage;
         private readonly BookStorePage _bookStorePage;
@@ -26,6 +26,7 @@ namespace DemoQASpecFlowProject.StepDefinitions
             _scenarioContext = scenarioContext;
             _homePage = homePage;
             _bookStorePage = bookStorePage;
+            
 
         }
 

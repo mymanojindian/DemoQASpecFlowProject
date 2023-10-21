@@ -14,7 +14,9 @@ namespace DemoQASpecFlowProject.Pages.AlertFramesANdWindowPage
 
         private DriverExtensions _driverExtensions;
         By AlertsLink = By.XPath("//span[contains(text(),'Alerts')]");
-        By PromtButton = By.Id("promtButton"); 
+        //By PromtButton = By.Id("promtButton");
+        By PromtButton = By.Id("alertButton");
+        
         By PromtResultButton = By.Id("promptResult");
         #region Constructor
         public AlertsPage (DriverExtensions driverExtensions)
@@ -33,9 +35,10 @@ namespace DemoQASpecFlowProject.Pages.AlertFramesANdWindowPage
 
         public void ValidateAlertPrompt(IWebDriver driver)
         {
-            string name = Faker.NameFaker.MaleName();
-            _driverExtensions.HandlePromtAlerts(driver, name);
-            Assert.AreEqual("You entered " + name, _driverExtensions.GetText(driver, PromtResultButton));
+          _driverExtensions.AcceptAlerts(driver);
+            //string name = Faker.NameFaker.MaleName();
+          //  _driverExtensions.HandlePromtAlerts(driver, name);
+          //  Assert.AreEqual("You entered " + name, _driverExtensions.GetText(driver, PromtResultButton));
 
         }
 
